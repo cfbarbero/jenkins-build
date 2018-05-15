@@ -26,7 +26,7 @@ pipeline {
 
         // Use agent none when asking for user input so that you don't tie up an executor waiting
         stage('Deploy to stage?') { agent none
-            step {
+            steps {
                 input 'Deploy to stage?'
             }
         }
