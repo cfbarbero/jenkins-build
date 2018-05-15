@@ -73,7 +73,7 @@ pipeline {
 
                 stage("Build 2"){agent any
                     steps{
-                         call()
+                         hello()
                     }
                 }
             }
