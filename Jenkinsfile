@@ -6,7 +6,7 @@ pipeline {
 
     stages {
         stage('Beginning') { agent any
-            environement{
+            environment{
                 NODE_VER = '9.0'
             }
             steps {
