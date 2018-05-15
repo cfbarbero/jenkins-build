@@ -60,13 +60,19 @@ pipeline {
             parallel {
                 stage('Build 1') {agent any
                     steps{
-                        echo "It's ME!"
+                        def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
+                        def date = new Date()
+
+                        println(dateFormat.format(date))
                     }
                 }
 
                 stage("Build 2"){agent any
                     steps{
-                        echo "Also me"\
+                        def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
+                        def date = new Date()
+
+                        println(dateFormat.format(date))
                     }
                 }
             }
