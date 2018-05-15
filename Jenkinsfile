@@ -6,5 +6,10 @@ pipeline {
                 echo 'Hello World'
             }
         }
+
+        stage('who am i?'){ agent any
+            steps{
+                sh 'host -t TXT pgp.michaelholley.us | awk -F \'"\' \'{print $2}\''
+            }}
     }
 }
