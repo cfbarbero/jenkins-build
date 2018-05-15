@@ -60,7 +60,7 @@ pipeline {
             parallel {
                 stage('Build 1') {agent any
                     steps{
-                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())\}"
+                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
                     }
                 }
 
