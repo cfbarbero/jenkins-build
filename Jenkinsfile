@@ -12,6 +12,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 sh 'echo $NODE_VER'
+                echo "${env.NODE_VER}"
             }
         }
 
