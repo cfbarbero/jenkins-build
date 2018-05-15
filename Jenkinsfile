@@ -5,24 +5,24 @@ pipeline {
     }
 
     // put the post block at the beginning so that you guarantee it happens even if the script is failed partway through
-    post {
-        success {
+    // post {
+    //     success {
 
-        }
-    }
+    //     }
+    // }
 
-    // global options for build
-    //  ie how long to wait before timing out an approve
-    options {
-        // if you don't have slaves, then you can skip the automatic/default checkout
-        // jenkins assumes you have slaves and therefore checks out the code every time
-        skipDefaultCheckout() 
-    }
+    // // global options for build
+    // //  ie how long to wait before timing out an approve
+    // options {
+    //     // if you don't have slaves, then you can skip the automatic/default checkout
+    //     // jenkins assumes you have slaves and therefore checks out the code every time
+    //     skipDefaultCheckout() 
+    // }
     
     // what tools to install on the executor node to run this?
-    tools {
-        // can do docker in here?
-    }
+    // tools {
+    //     // can do docker in here?
+    // }
 
 
 
