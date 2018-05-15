@@ -4,6 +4,28 @@ pipeline {
         NODE_VER = '8.1.0'
     }
 
+    // put the post block at the beginning so that you guarantee it happens even if the script is failed partway through
+    post {
+        success {
+
+        }
+    }
+
+    // global options for build
+    //  ie how long to wait before timing out an approve
+    options {
+        // if you don't have slaves, then you can skip the automatic/default checkout
+        // jenkins assumes you have slaves and therefore checks out the code every time
+        skipDefaultCheckout() 
+    }
+    
+    // what tools to install on the executor node to run this?
+    tools {
+        // can do docker in here?
+    }
+
+
+
     stages {
         stage('Beginning') { agent any
             environment{
@@ -29,6 +51,26 @@ pipeline {
             steps {
                 input 'Deploy to stage?'
             }
+        }
+
+        stage('parallel') { agent any
+            // if any parallel stage task fails, then fail the whole thing immediately don't wait for the rest to finish
+            failFast true
+
+            parallel {
+                stage('Build 1') {
+                    steps{
+                        echo "It's ME!"
+                    }
+                }
+
+                stage("Build 2"){
+                    steps{
+                        echo "Also me"\
+                    }
+                }
+            }
+
         }
     }
 }
