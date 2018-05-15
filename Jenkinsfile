@@ -48,6 +48,11 @@ pipeline {
 
         // Use agent none when asking for user input so that you don't tie up an executor waiting
         stage('Deploy to stage?') { agent none
+            when {
+                anyOf {
+                    branch 'Stage'
+                }
+            }
             steps {
                 input 'Deploy to stage?'
             }
@@ -60,13 +65,13 @@ pipeline {
             parallel {
                 stage('Build 1') {agent any
                     steps{
-                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
+                         echo "blah"
                     }
                 }
 
                 stage("Build 2"){agent any
                     steps{
-                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
+                         echo "blah"
                     }
                 }
             }
