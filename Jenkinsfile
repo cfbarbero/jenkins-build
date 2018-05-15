@@ -53,18 +53,18 @@ pipeline {
             }
         }
 
-        stage('parallel') { agent any
+        stage('parallel') { 
             // if any parallel stage task fails, then fail the whole thing immediately don't wait for the rest to finish
             failFast true
 
             parallel {
-                stage('Build 1') {
+                stage('Build 1') {agent any
                     steps{
                         echo "It's ME!"
                     }
                 }
 
-                stage("Build 2"){
+                stage("Build 2"){agent any
                     steps{
                         echo "Also me"\
                     }
