@@ -60,19 +60,13 @@ pipeline {
             parallel {
                 stage('Build 1') {agent any
                     steps{
-                        def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
-                        def date = new Date()
-
-                        println(dateFormat.format(date))
+                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis()}"
                     }
                 }
 
                 stage("Build 2"){agent any
                     steps{
-                        def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
-                        def date = new Date()
-
-                        println(dateFormat.format(date))
+                        echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis()}"
                     }
                 }
             }
