@@ -1,3 +1,5 @@
+@Library('jenkins-library') _
+
 pipeline {
     agent none
     environment {
@@ -71,7 +73,7 @@ pipeline {
 
                 stage("Build 2"){agent any
                     steps{
-                         echo "blah"
+                         call()
                     }
                 }
             }
